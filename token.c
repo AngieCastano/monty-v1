@@ -29,7 +29,6 @@ char **tokenizer(char *line)
 	argv = malloc((iter1 + 1) * sizeof(char *));
 	if (argv == NULL)
 	{
-		write(STDOUT_FILENO, "failed line allocation\n", 23);
 		return (NULL);
 	}
 	writer = strtok(linecpy2, DELIMITER);

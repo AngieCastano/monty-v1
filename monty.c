@@ -8,19 +8,27 @@
 int main(int argc, char *argv[])
 {
 	FILE *file_name;
-	char single_line[150], *token;
+	char single_line[150];
+	char *token, **tokenized;
+	int i = 1, it = 0;
+	stack_t *head = NULL;
+	instruction_t func_dict[] = {{"push", funct_push}, {"pall", funct_pall},
+				     {"pint", funct_pint}, {NULL, NULL}};
 	if (argc < 2)
+		printf("USAGE: monty file\n"), exit (EXIT_FAILURE);
+	file_name =  fopen(argv[1], "r");
+	if (file_name == NULL)
 	{
-		printf("USAGE: monty file\n");
+		printf("Error: Can't open file %s\n", argv[1]);
 		exit (EXIT_FAILURE);
 	}
-	file_name =  fopen(argv[1], "r");
-	token =  strtok()
-	while(!feof(file_name))
+	for(;fgets(single_line, 150, file_name) != NULL; i++)
 	{
-		fgets(single_line, 150, file_name);
-		printf("%s", single_line);
+		tokenized = tokenizer(single_line);
+		for (it = 0; func_dict[it].opcode; it++)
+			if (tokenized[0] == func_dict[it].opcode)
+				func_dict[it].f(&head, atoi(tokenized[1]));
 	}
-	fclose(file_name);
+	fclose(file_name); return (0);
 	return (0);
 }
