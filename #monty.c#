@@ -42,7 +42,6 @@ int main(int argc, char *argv[])
 		free(head->prev);
 	}
 	free(head);
-	head = NULL;
 	fclose(file_name); return (0);
 	return (0);
 }

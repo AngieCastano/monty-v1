@@ -6,28 +6,32 @@
  **/
 void funct_push (stack_t **head, unsigned int n)
 {
-	stack_t *new = malloc(sizeof(stack_t));
-
-	if (!new)
-		printf("Error: malloc failed\n"); exit (EXIT_FAILURE);
-	(*new).n = n;
-	(*new).next = *head;
-	(*new).prev = NULL;
-
+	stack_t *new_node = NULL;
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{
+		free(new_node);
+		exit (EXIT_FAILURE);
+	}
+	new_node->n = n;
+	new_node->prev = NULL;
+	new_node->next = NULL;
 	if (*head)
-		(*head)->prev = new;
-	*head = new;
+	{
+		(*head)->prev = new_node;
+		new_node->next = *head;
+	}
+	*head = new_node;
 }
 /**
  * funct_pall - prints the whole list
  * @head: head of the list list to print
  * @n: unused variable
  **/
-void funct_pall(stack_t **head, unsigned int n)
+void funct_pall(stack_t **head, unsigned int __attribute__((unused)) n)
 {
-	size_t i = 0;
+	int i = 0;
 	stack_t *aux = *head;
-
 	for (; aux; i++)
 	{
 		printf("%d\n", (*aux).n);
@@ -39,7 +43,7 @@ void funct_pall(stack_t **head, unsigned int n)
  * @head: head of the list list to print
  * @n: unused variable
  **/
-void funct_pint(stack_t **head, unsigned int n)
+void funct_pint(stack_t **head, unsigned int __attribute__((unused)) n)
 {
 	printf("%d\n", (**head).n);
 }

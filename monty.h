@@ -41,4 +41,5 @@ int _strlen(char *s);
 void funct_push (stack_t **head, unsigned int n);
 void funct_pall(stack_t **head, unsigned int n);
 void funct_pint(stack_t **head, unsigned int n);
+
 #endif

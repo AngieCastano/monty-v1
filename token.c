@@ -14,8 +14,8 @@ char **tokenizer(char *line)
 	char *linecpy2 = NULL;
 	int iter1 = 0, iter2 = 0;
 
-	linecpy = _strdup(line);
-	linecpy2 = _strdup(line);
+	linecpy = strdup(line);
+	linecpy2 = strdup(line);
 	if (linecpy == NULL)
 	{
 		return (NULL);
@@ -34,12 +34,13 @@ char **tokenizer(char *line)
 	writer = strtok(linecpy2, DELIMITER);
 	while (writer != NULL && iter2 <= iter1)
 	{
-		argv[iter2] = _strdup(writer);
-		argv[iter2][_strlen(writer)] = '\0';
+		argv[iter2] = strdup(writer);
+		argv[iter2][strlen(writer)] = '\0';
 		writer = strtok(NULL, DELIMITER);
 		iter2++;
 	}
-
+	free(linecpy);
+	free(linecpy2);
 	argv[iter1] = NULL;
 	return (argv);
 }
