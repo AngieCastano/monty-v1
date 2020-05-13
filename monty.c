@@ -10,10 +10,9 @@ int main(int argc, char *argv[])
 	FILE *file_name;
 	char single_line[150];
 	char **tokenized;
-	int i = 1, it = 0, n = 0, f = 0;
+	int i = 1;
 	stack_t *head = NULL;
-	instruction_t func_dict[] = {{"push", funct_push}, {"pall", funct_pall},
-				     {"pint", funct_pint}, {NULL, NULL}};
+
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
