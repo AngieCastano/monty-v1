@@ -2,7 +2,6 @@
 /**
  * tokenizer - returns a matrix of a strtoked string
  * @line: string to tokenize
- * @head: head of the list to malloc and to free
  * Return: A double pointer containing the splied string by delimiters
  */
 char **tokenizer(char *line)
@@ -16,10 +15,8 @@ char **tokenizer(char *line)
 
 	linecpy = strdup(line);
 	linecpy2 = strdup(line);
-	if (linecpy == NULL)
-	{
-		return (NULL);
-	}
+	if_free_fails(linecpy);
+	if_free_fails(linecpy2);
 	argc = strtok(linecpy, DELIMITER);
 	while (argc != NULL)
 	{
@@ -27,14 +24,12 @@ char **tokenizer(char *line)
 		iter1++;
 	}
 	argv = malloc((iter1 + 1) * sizeof(char *));
-	if (argv == NULL)
-	{
-		return (NULL);
-	}
+	if_free_fails(argv);
 	writer = strtok(linecpy2, DELIMITER);
 	while (writer != NULL && iter2 <= iter1)
 	{
 		argv[iter2] = strdup(writer);
+		if_free_fails(argv[iter2]);
 		argv[iter2][strlen(writer)] = '\0';
 		writer = strtok(NULL, DELIMITER);
 		iter2++;

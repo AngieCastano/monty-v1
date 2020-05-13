@@ -7,6 +7,7 @@
 void funct_push (stack_t **head, unsigned int n)
 {
 	stack_t *new_node = NULL;
+	
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{

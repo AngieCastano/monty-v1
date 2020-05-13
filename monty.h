@@ -17,9 +17,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 /**
  * struct instruction_s - opcode and its function
@@ -31,15 +31,18 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 char **tokenizer(char *line);
 char *_strdup(char *str);
 int _strlen(char *s);
-void funct_push (stack_t **head, unsigned int n);
+void funct_push(stack_t **head, unsigned int n);
 void funct_pall(stack_t **head, unsigned int n);
 void funct_pint(stack_t **head, unsigned int n);
-
+void check_opcode(char **tokenized, stack_t **head, int line_number, FILE **f);
+void if_free_fails(void *pointer);
+void free_tokenized(char **tokenized);
+void free_list(stack_t **head);
 #endif
