@@ -46,14 +46,29 @@ void funct_pall(stack_t **head, unsigned int __attribute__((unused)) n)
 /**
  * funct_pint - prints the integer at the top of the list
  * @head: head of the list list to print
- * @n: unused variable
+ * @n: line number of the file when fails
  **/
 void funct_pint(stack_t **head, unsigned int n)
 {
 	if (!*head)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", n);
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (**head).n);
+}
+/**
+ * funct_pop - emoves the top element of the stack.
+ * @head: head of the list to remove from the stack
+ * @n: line number of the file when fails
+ **/
+void funct_pop(stack_t **head, unsigned int n)
+{
+	if (!*head)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", n);
+		exit(EXIT_FAILURE);
+	}
+	*head = (*head)->next;
+	free((*head)->prev);
 }
