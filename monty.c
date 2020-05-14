@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	FILE *file_name;
 	char single_line[1500];
 	char **tokenized;
-	int i = 1;
+	unsigned int i = 1;
 	stack_t *head = NULL;
 
 	ext_n = 0;

@@ -2998,7 +2998,8 @@ push 13032
 push 10615
 push 11185
 push 25591
-pallpush 18099
+pallpush
+18099
 push 3974
 push 32541
 push 15464
@@ -5999,4 +6000,3 @@ push 10615
 push 11185
 push 25591
 pall
-

@@ -6,9 +6,10 @@
  * @line_num: number line
  * @file: file name
  **/
-void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
+void check_opcode(char **tokenized, stack_t **head, unsigned int line_num,
+		  FILE **file)
 {
-	int it = 0, n = 5;
+	int it = 0;
 	char *copy = tokenized[0];
 	instruction_t func_dict[] = {{"push", funct_push}, {"pall", funct_pall},
 				     {"pint", funct_pint}, {NULL, NULL}};
@@ -31,7 +32,7 @@ void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 		if (strcmp(tokenized[0], func_dict[it].opcode) == 0)
 		{
 			check_empty(head, tokenized, *file, line_num, it);
-			func_dict[it].f(head, n);
+			func_dict[it].f(head, line_num);
 			return;
 		}
 	}

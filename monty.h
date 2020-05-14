@@ -42,7 +42,8 @@ int _strlen(char *s);
 void funct_push(stack_t **head, unsigned int n);
 void funct_pall(stack_t **head, unsigned int n);
 void funct_pint(stack_t **head, unsigned int n);
-void check_opcode(char **tokenized, stack_t **head, int line_number, FILE **f);
+void check_opcode(char **tokenized, stack_t **head, unsigned int line_number,
+		  FILE **f);
 void if_free_fails(void *pointer);
 void free_tokenized(char **tokenized);
 void free_list(stack_t **head);
