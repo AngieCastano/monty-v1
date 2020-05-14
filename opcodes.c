@@ -53,7 +53,7 @@ void funct_pint(stack_t **head, unsigned int n)
 	if (!*head)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", n);
-		return;
+		exit (EXIT_FAILURE);
 	}
 	printf("%d\n", (**head).n);
 }
