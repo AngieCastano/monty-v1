@@ -64,11 +64,17 @@ void funct_pint(stack_t **head, unsigned int n)
  **/
 void funct_pop(stack_t **head, unsigned int n)
 {
-	if (!*head)
+	if (*head == NULL)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", n);
 		exit(EXIT_FAILURE);
 	}
-	*head = (*head)->next;
-	free((*head)->prev);
+	if (*head && (*head)->next)
+	{
+		*head = (*head)->next;
+		free((*head)->prev);
+		return;
+	}
+	free(*head);
+	*head = NULL;
 }
