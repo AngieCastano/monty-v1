@@ -12,7 +12,7 @@ void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 	instruction_t func_dict[] = {{"push", funct_push}, {"pall", funct_pall},
 				     {"pint", funct_pint}, {NULL, NULL}};
 
-	if (tokenized[1])
+	if (tokenized[1] && strcmp(tokenized[0], "push") == 0)
 	{
 		if (check_digits(tokenized[1]) == 0)
 			ext_n = atoi(tokenized[1]);

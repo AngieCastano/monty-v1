@@ -1,6 +1,6 @@
 push 1
-pall 5
+pall hola
+push hola
 push 2
 
-push 4dfdegf
 pall
