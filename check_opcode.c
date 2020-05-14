@@ -13,7 +13,15 @@ void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 				     {"pint", funct_pint}, {NULL, NULL}};
 
 	if (tokenized[1])
-		ext_n = atoi(tokenized[1]);
+	{
+		if (check_digits(tokenized[1]) == 0)
+			ext_n = atoi(tokenized[1]);
+		else
+		{
+			printf("L%i: usage: push integer\n", line_num);
+			exit(EXIT_FAILURE);
+		}
+	}
 	for (it = 0; func_dict[it].opcode; it++)
 	{
 		if (strcmp(tokenized[0], func_dict[it].opcode) == 0)

@@ -1,7 +1,6 @@
 push 1
-pall
+pall 5
 push 2
 
-push 3
+push 4dfdegf
 pall
-pint
