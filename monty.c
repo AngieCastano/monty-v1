@@ -9,7 +9,7 @@ int ext_n;
 int main(int argc, char *argv[])
 {
 	FILE *file_name;
-	char single_line[150];
+	char single_line[1500];
 	char **tokenized;
 	int i = 1;
 	stack_t *head = NULL;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	for (; fgets(single_line, 150, file_name) != NULL; i++)
+	for (; fgets(single_line, 1500, file_name) != NULL; i++)
 	{
 		tokenized = tokenizer(single_line);
 		if (tokenized[0] == NULL)

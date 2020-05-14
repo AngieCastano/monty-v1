@@ -19,6 +19,9 @@ void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 		else
 		{
 			printf("L%i: usage: push integer\n", line_num);
+			free_list(head);
+			free_tokenized(tokenized);
+			fclose(*file);
 			exit(EXIT_FAILURE);
 		}
 	}
