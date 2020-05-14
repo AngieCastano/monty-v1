@@ -14,7 +14,7 @@ void funct_push(stack_t **head, unsigned int n)
 	{
 		free_list(head);
 		free(new_node);
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = ext_n;

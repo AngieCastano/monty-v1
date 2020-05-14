@@ -8,7 +8,7 @@ void if_free_fails(void *pointer)
 	if (pointer == NULL)
 	{
 		free(pointer);
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 }

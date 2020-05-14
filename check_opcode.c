@@ -9,6 +9,7 @@
 void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 {
 	int it = 0, n = 5;
+	char *copy = tokenized[0];
 	instruction_t func_dict[] = {{"push", funct_push}, {"pall", funct_pall},
 				     {"pint", funct_pint}, {NULL, NULL}};
 
@@ -18,7 +19,7 @@ void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 			ext_n = atoi(tokenized[1]);
 		else
 		{
-			printf("L%i: usage: push integer\n", line_num);
+			fprintf(stderr, "L%i: usage: push integer\n", line_num);
 			free_list(head);
 			free_tokenized(tokenized);
 			fclose(*file);
@@ -36,7 +37,7 @@ void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 	}
 	if (func_dict[it].opcode == NULL)
 	{
-		printf("L%i: unknown instruction %s\n", line_num, tokenized[0]);
+		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, copy);
 		free_list(head);
 		free_tokenized(tokenized);
 		fclose(*file);

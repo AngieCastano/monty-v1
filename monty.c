@@ -17,13 +17,13 @@ int main(int argc, char *argv[])
 	ext_n = 0;
 	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	file_name =  fopen(argv[1], "r");
 	if (file_name == NULL)
 	{
-		printf("Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	for (; fgets(single_line, 1500, file_name) != NULL; i++)
