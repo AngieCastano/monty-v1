@@ -4,17 +4,19 @@
  * @head: head of the list to modify
  * @n: number to add
  **/
-void funct_push (stack_t **head, unsigned int n)
+void funct_push(stack_t **head, unsigned int n)
 {
 	stack_t *new_node = NULL;
-	
+	(void) n;
+
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
+		free_list(head);
 		free(new_node);
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
-	new_node->n = n;
+	new_node->n = ext_n;
 	new_node->prev = NULL;
 	new_node->next = NULL;
 	if (*head)
@@ -33,6 +35,7 @@ void funct_pall(stack_t **head, unsigned int __attribute__((unused)) n)
 {
 	int i = 0;
 	stack_t *aux = *head;
+
 	for (; aux; i++)
 	{
 		printf("%d\n", (*aux).n);

@@ -37,3 +37,23 @@ void free_list(stack_t **head)
 	}
 	free(*head);
 }
+/**
+ * check_empty - aja
+ * @head: head of dllist
+ * @tokenized: string tokens
+ * @file: file opened
+ * @line_num: number of lines read
+ * @it: index dic
+ **/
+void check_empty(stack_t **head, char **tokenized, FILE *file, int line_num,
+		 int it)
+{
+	if (!tokenized[1] && it == 0)
+	{
+		free_list(head);
+		free_tokenized(tokenized);
+		fclose(file);
+		printf("L%i: usage: push integer\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+}

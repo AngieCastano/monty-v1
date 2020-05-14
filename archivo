@@ -1,7 +1,17 @@
-push -1
-push 2
+push 1 (1)
+push hola (error)
+push -3x (error)
+push -3 (-3)
+push -3 x (-3)
+push 5-?*¨¡+´´1 (error)
+
+pall
+dmaowidnaw
 push 3
-pall
-push 1
-pall
-dfgergtr
+
+is negative?
+atoi
+else if is ascii ? (si es solo numeros)
+atoi
+else
+error

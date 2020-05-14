@@ -1,4 +1,5 @@
 #include "monty.h"
+int ext_n;
 /**
  * main - The main of our program
  * @argc: argument counter
@@ -13,6 +14,7 @@ int main(int argc, char *argv[])
 	int i = 1;
 	stack_t *head = NULL;
 
+	ext_n = 0;
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
@@ -27,6 +29,11 @@ int main(int argc, char *argv[])
 	for (; fgets(single_line, 150, file_name) != NULL; i++)
 	{
 		tokenized = tokenizer(single_line);
+		if (tokenized[0] == NULL)
+		{
+			free(tokenized);
+			continue;
+		}
 		check_opcode(tokenized, &head, i, &file_name);
 		free_tokenized(tokenized);
 	}

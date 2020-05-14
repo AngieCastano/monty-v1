@@ -8,17 +8,17 @@
  **/
 void check_opcode(char **tokenized, stack_t **head, int line_num, FILE **file)
 {
-	int it = 0;
-	int n = 0;
+	int it = 0, n = 5;
 	instruction_t func_dict[] = {{"push", funct_push}, {"pall", funct_pall},
 				     {"pint", funct_pint}, {NULL, NULL}};
 
+	if (tokenized[1])
+		ext_n = atoi(tokenized[1]);
 	for (it = 0; func_dict[it].opcode; it++)
 	{
 		if (strcmp(tokenized[0], func_dict[it].opcode) == 0)
 		{
-			if (tokenized[1])
-				n = abs(atoi(tokenized[1]));
+			check_empty(head, tokenized, *file, line_num, it);
 			func_dict[it].f(head, n);
 			return;
 		}

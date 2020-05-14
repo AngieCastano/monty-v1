@@ -35,6 +35,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern int ext_n;
 char **tokenizer(char *line);
 char *_strdup(char *str);
 int _strlen(char *s);
@@ -45,4 +46,7 @@ void check_opcode(char **tokenized, stack_t **head, int line_number, FILE **f);
 void if_free_fails(void *pointer);
 void free_tokenized(char **tokenized);
 void free_list(stack_t **head);
+void check_empty(stack_t **head, char **tokenized, FILE *file, int line_num,
+		 int it);
+
 #endif
