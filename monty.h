@@ -59,5 +59,6 @@ void f_div(stack_t **head, unsigned int n);
 void f_mul(stack_t **head, unsigned int n);
 void f_mod(stack_t **head, unsigned int n);
 void f_pchar(stack_t **head, unsigned int n);
+void f_pstr(stack_t **head, unsigned int n);
 
 #endif

@@ -38,7 +38,6 @@ void f_mod(stack_t **head, unsigned int n)
  */
 void f_pchar(stack_t **head, unsigned int n)
 {
-	(void) head;
 	(void) n;
 
 	if  (!*head || !head)
@@ -52,7 +51,28 @@ void f_pchar(stack_t **head, unsigned int n)
 	else
 	{
 		fprintf(stderr,
-			"L%i: can't pchar, value out of range", n);
+			"L%i: can't pchar, value out of range\n", n);
 		exit(EXIT_FAILURE);
 	}
+}
+/**
+ * f_pstr - adds the top two elements of the stack.
+ * @head: head of the list
+ * @n: line number of the file
+ */
+void f_pstr(stack_t **head, unsigned int n)
+{
+	stack_t *aux;
+	(void) n;
+
+	aux = *head;
+	while (aux && (*aux).next)
+	{
+		if (!isascii((*aux).n) || (*aux).n == 0)
+			break;
+		if (isalpha((*aux).n) != 0)
+			printf("%c", (*aux).n);
+		aux = (*aux).next;
+	}
+	printf("\n");
 }
