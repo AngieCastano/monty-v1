@@ -52,7 +52,7 @@ void f_pchar(stack_t **head, unsigned int n)
 	else
 	{
 		fprintf(stderr,
-			"L%i: can't pchar, value out of range", n);
+			"L%i: can't pchar, value out of range\n", n);
 		exit(EXIT_FAILURE);
 	}
 }
