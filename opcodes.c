@@ -94,23 +94,31 @@ void f_swap(stack_t **head, unsigned int n)
 			"L%i: can't swap, stack too short\n", n);
 		exit(EXIT_FAILURE);
 	}
-	if ((**head).next && (*head && head))
-	{
-		aux = *head;
-		*head = aux->next;
-
-		(**head).prev = NULL;
-		aux->next = (**head).next;
-		aux->prev = *head;
-
-		(**head).next = aux;
-		aux = (*aux).next;
-		aux->prev = (**head).next;
-	}
-	else
+	if (!(**head).next)
 	{
 		fprintf(stderr,
 			"L%i: can't swap, stack too short\n", n);
 		exit(EXIT_FAILURE);
+	}
+	if (!(*head)->next->next && (*head && head))
+	{
+		(**head).prev = (**head).next;
+		(**head).next = NULL;
+		*head = (**head).prev;
+		(**head).next = (**head).prev;
+		(**head).prev = NULL;
+		return;
+	}
+	if ((**head).next && (*head && head))
+	{
+		aux = *head;
+		*head = aux->next;
+		(**head).prev = NULL;
+		aux->next = (**head).next;
+		aux->prev = *head;
+		(**head).next = aux;
+		aux = (*aux).next;
+		aux->prev = (**head).next;
+		return;
 	}
 }
