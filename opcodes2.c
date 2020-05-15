@@ -25,3 +25,13 @@ void funct_add(stack_t **head, unsigned int n)
 		free((*head)->prev);
 	}
 }
+/**
+ * funct_nop - does nothing
+ * @head: head of the list
+ * @n: line number of the file
+ */
+void funct_nop(stack_t **head, unsigned int n)
+{
+	(void) head;
+	(void) n;
+}

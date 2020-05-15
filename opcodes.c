@@ -79,7 +79,7 @@ void funct_pop(stack_t **head, unsigned int n)
 	*head = NULL;
 }
 /**
- * funct_pop - swap two last stack elements.
+ * f_swap - swap two last stack elements.
  * @head: head of the list to remove from the stack
  * @n: line number of the file when fails
  **/
