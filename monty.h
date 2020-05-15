@@ -54,4 +54,6 @@ void funct_pop(stack_t **head, unsigned int n);
 void f_swap(stack_t **head, unsigned int n);
 void funct_add(stack_t **head, unsigned int n);
 void funct_nop(stack_t **head, unsigned int n);
+void funct_sub(stack_t **head, unsigned int n);
+
 #endif
