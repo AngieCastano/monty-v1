@@ -28,6 +28,8 @@ int main(int argc, char *argv[])
 	}
 	for (; fgets(single_line, 1500, file_name) != NULL; i++)
 	{
+		if (single_line[0] == '#')
+			continue;
 		tokenized = tokenizer(single_line);
 		if (tokenized[0] == NULL || tokenized[0][0] == '#')
 		{
