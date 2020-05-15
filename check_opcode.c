@@ -13,7 +13,7 @@ void check_opcode(char **tokenized, stack_t **head, unsigned int line_num,
 	char *copy = tokenized[0];
 	instruction_t func_dict[] = {{"push", funct_push}, {"pall", funct_pall},
 				     {"pint", funct_pint}, {"pop", funct_pop},
-				     {NULL, NULL}};
+				     {"swap", f_swap}, {NULL, NULL}};
 
 	if (tokenized[1] && strcmp(tokenized[0], "push") == 0)
 	{

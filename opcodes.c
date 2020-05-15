@@ -78,3 +78,34 @@ void funct_pop(stack_t **head, unsigned int n)
 	free(*head);
 	*head = NULL;
 }
+/**
+ * funct_pop - swap two last stack elements.
+ * @head: head of the list to remove from the stack
+ * @n: line number of the file when fails
+ **/
+void f_swap(stack_t **head, unsigned int n)
+{
+	stack_t *aux;
+	(void) n;
+
+	if ((**head).next)
+	{
+		aux = *head;
+		*head = aux->next;
+
+		(**head).prev = NULL;
+		aux->next = (**head).next;
+		aux->prev = *head;
+
+		(**head).next = aux;
+		aux = (*aux).next;
+		aux->prev = (**head).next;
+
+	}
+	else
+	{
+		fprintf(stderr,
+			"L%i: can't swap, stack too short\n", n);
+		exit(EXIT_FAILURE);
+	}
+}

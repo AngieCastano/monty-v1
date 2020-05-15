@@ -51,5 +51,6 @@ void check_empty(stack_t **head, char **tokenized, FILE *file, int line_num,
 		 int it);
 int check_digits(char *token);
 void funct_pop(stack_t **head, unsigned int n);
+void f_swap(stack_t **head, unsigned int n);
 
 #endif
