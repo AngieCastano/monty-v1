@@ -31,3 +31,13 @@ void f_mod(stack_t **head, unsigned int n)
 		free((*head)->prev);
 	}
 }
+/**
+ * f_coment - adds the top two elements of the stack.
+ * @head: head of the list
+ * @n: line number of the file
+ */
+void f_coment(stack_t **head, unsigned int n)
+{
+	(void) head;
+	(void) n;
+}
