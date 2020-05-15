@@ -65,13 +65,14 @@ void f_pstr(stack_t **head, unsigned int n)
 	stack_t *aux;
 	(void) n;
 
+	if (!*head || !head)
+		return;
 	aux = *head;
-	while (aux && (*aux).next)
+	while (aux)
 	{
-		if (!isascii((*aux).n) || (*aux).n == 0)
+		if ((*aux).n < 31 || (*aux).n > 127)
 			break;
-		else
-			printf("%c", (*aux).n);
+		printf("%c", (*aux).n);
 		aux = (*aux).next;
 	}
 	printf("\n");
