@@ -66,7 +66,10 @@ void f_pstr(stack_t **head, unsigned int n)
 	(void) n;
 
 	if (!*head || !head)
+	{
+		printf("\n");
 		return;
+	}
 	aux = *head;
 	while (aux)
 	{
