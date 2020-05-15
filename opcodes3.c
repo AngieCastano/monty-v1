@@ -70,7 +70,7 @@ void f_pstr(stack_t **head, unsigned int n)
 	{
 		if (!isascii((*aux).n) || (*aux).n == 0)
 			break;
-		if (isalpha((*aux).n) != 0)
+		else
 			printf("%c", (*aux).n);
 		aux = (*aux).next;
 	}
