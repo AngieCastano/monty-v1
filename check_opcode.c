@@ -15,7 +15,8 @@ void check_opcode(char **tokenized, stack_t **head, unsigned int line_num,
 				     {"pint", funct_pint}, {"pop", funct_pop},
 				     {"swap", f_swap}, {"add", funct_add},
 				     {"nop", funct_nop}, {"sub", funct_sub},
-				     {"div", f_div}, {NULL, NULL}};
+				     {"div", f_div}, {"mul", f_mul},
+				     {NULL, NULL}};
 
 	if (tokenized[1] && strcmp(tokenized[0], "push") == 0)
 	{
